@@ -1,5 +1,22 @@
 module InstanceCounter
 
+  def included(base)
+  base.extend(ClassMethods)
+  base.include(InstanceMethods)
+  end
+
+  module ClassMethods
+  def instances
+    #возвращает количество экземпляров класса
+    @@instances
+  end
+  end
+
+  module InstanceMthods
+  def register_instance
+    @@instances += 1
+  end
+  end
 
 end
 #(    Создать модуль InstanceCounter, содержащий следующие методы класса и инстанс-методы, которые подключаются

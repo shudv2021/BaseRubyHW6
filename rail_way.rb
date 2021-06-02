@@ -22,16 +22,16 @@ class RailWay
     start_stations = %w[Краснодар Ростов Воронеж Москва Владимир]
     start_stations.each { |station| @total_stations<<Station.new(station) }
     total_trains.push(CargoTrain.new(111))
-    train_by_num(111).insert_producer('BMW')
+    train_by_num(111).producer= ('BMW')
     total_trains.push(CargoTrain.new(222))
     total_trains.push(PasangerTrain.new(333))
     total_trains.push(PasangerTrain.new(444))
     #Создаем вагоны
     total_carriages.push(CargoCarriage.new(99111))
-    carriage_by_num(99111).insert_producer('BMW')
+    carriage_by_num(99111).producer= ('BMW')
     total_carriages.push(CargoCarriage.new(99222))
     total_carriages.push(PassangerCarriage.new(88111))
-    carriage_by_num(88111).insert_producer('ReinMetall')
+    carriage_by_num(88111).producer= ('ReinMetall')
     total_carriages.push(PassangerCarriage.new(88222))
     #Создаем пробный маршрут
     total_routs << Route.new(total_stations[0], total_stations[4])
@@ -102,6 +102,7 @@ class RailWay
     when '13'
       sent_train_back
     when '14'
+      puts Train.instances
       finished_all
     when '21'
       show_all_stations_by_all
@@ -130,7 +131,7 @@ class RailWay
     station = gets.chomp
     puts all_trains = station_by_name(station).return_all_trains
     puts "На станции #{station} находятся:"
-    all_trains.each { |train| puts "*#{train.type}  Поезд №  #{train.train_num}* производитель #{train.show_producer}"}
+    all_trains.each { |train| puts "*#{train.type}  Поезд №  #{train.train_num}* производитель #{train.producer}"}
   end
 
   def create_train

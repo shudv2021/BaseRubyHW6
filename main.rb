@@ -14,7 +14,7 @@ require_relative 'modules.rb'
 rr = RailWay.new
 rr.seed
 rr.interface
-
+pust Train.instances
 
 
 
