@@ -1,6 +1,6 @@
 module InstanceCounter
 
-  def included(base)
+  def self.included(base)
   base.extend(ClassMethods)
   base.include(InstanceMethods)
   end
@@ -8,14 +8,30 @@ module InstanceCounter
   module ClassMethods
   def instances
     #возвращает количество экземпляров класса
-    @@instances
+    returne_instance
   end
   end
 
-  module InstanceMthods
+  module InstanceMethods
+    #этот модуль развернется в метод экземпляра класса те
   def register_instance
+    @@instances||=0
+    #если значение неопределено то оно равно 0
     @@instances += 1
   end
+    def returne_instance
+      @tontal_objects = @@instances
+      #реализовал по тексту комментария (но суть не уловил чем это отличатется от того,
+      # чтобы просто вернуть@@instances???)
+    end
+
+    #(Кроме того, я тебе здесь обращаться не к переменной напрямую, а к методу класса instances
+    # Кроме того, в методе класса instances нужно возвращать не переменную класса
+    # (иначе счетчик станет общим вообще для всех классов, где добавлен этот модуль),
+    # а переменную экземпляра. Потому что каждый класс - это объект, и у него могут быть свои переменные
+    # экземпляра.
+    # Инициализацию этой переменной тоже стоит сделать в instances)
+
   end
 
 end

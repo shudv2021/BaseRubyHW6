@@ -6,6 +6,7 @@ class Train
   include Producer
   include InstanceCounter
 
+
   @@train_all = []
   @@instances = 0
   def self.find(train_num)
