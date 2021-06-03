@@ -1,11 +1,9 @@
-
-
 require_relative 'modules.rb'
-require_relative 'inst_counter.rb'
+require_relative 'inst_counter'
+#require_relative 'inst_counter.rb'
 class Train
   include Producer
-  include InstanceCounter
-
+  include Counter
 
   @@train_all = []
   @@instances = 0
@@ -23,7 +21,7 @@ class Train
     @route
     @speed = 0
     @@train_all<<self
-    self.register_instance
+    increase_counter
   end
 
   def add_speed(add_sp)

@@ -8,13 +8,10 @@ require_relative 'cargo_train.rb'
 require_relative 'rail_way.rb'
 require_relative 'modules.rb'
 
-
-
-
 rr = RailWay.new
 rr.seed
 rr.interface
-pust Train.instances
+
 
 
 

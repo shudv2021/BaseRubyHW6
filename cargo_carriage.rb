@@ -1,9 +1,9 @@
-require_relative 'modules.rb'
-class CargoCarriage
-  include Producer
-  attr_reader :type, :carr_num
+require_relative 'carriages.rb'
+class CargoCarriage < Carriage
+  attr_reader :type
   def initialize(carr_num)
+    super
     @type = :cargo
-    @carr_num = carr_num
+    #increase_counter
   end
 end

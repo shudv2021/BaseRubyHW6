@@ -1,6 +1,7 @@
+require_relative 'inst_counter.rb'
 class Station
   attr_reader :station_name, :all_trains
-
+  include Counter
   @@station_all = []
   def self.get_all
     @@station_all
@@ -10,6 +11,7 @@ class Station
     @station_name = station_name
     @all_trains = []
     @@station_all<<self
+    increase_counter
   end
   #Все методы используются другими классами
   def add_train(train)

@@ -102,7 +102,13 @@ class RailWay
     when '13'
       sent_train_back
     when '14'
-      puts Train.instances
+      #проверка идет ли подсчет элементов на жд
+      puts Train.counter
+      puts CargoTrain.counter
+      puts PasangerTrain.counter
+      puts Station.counter
+      puts CargoCarriage.counter
+      puts PassangerCarriage.counter
       finished_all
     when '21'
       show_all_stations_by_all
